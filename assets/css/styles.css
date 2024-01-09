@@ -1,0 +1,19 @@
+/* * {
+    border: 1px solid black;
+} */
+
+#game-space {
+    margin: auto;
+    width: max-content;
+    border: 0px;
+}
+
+.tile {
+    display: inline-block;
+    width: 10vw;
+    max-width: 60px;
+    aspect-ratio: 1/1;
+    margin: 2px 2px 0 0;
+    border: 1px solid black;
+
+}
