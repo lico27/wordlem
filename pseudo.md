@@ -10,8 +10,8 @@
 
 ### Game page
 
-- Make grid layout for game div - container-fluid maybe
-- 5 columns x 6 rows
+- Make grid layout for game div ✅
+- 5 columns x 6 rows ✅
 - Make keyboard layout
   - Row 1 - 10 tiles
   - Row 2 - 9 tiles
@@ -34,11 +34,11 @@
 
 ## CSS
 
-- Make classes for each colour of tile:
-  - Green
-  - Yellow
-  - Dark grey
-  - Light grey (keyboard)
+- Make classes for each colour of tile: ✅
+  - Green ✅
+  - Yellow ✅
+  - Dark grey ✅
+  - Light grey (keyboard) ✅
 
 ## JavaScript
 

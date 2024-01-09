@@ -7,7 +7,7 @@ h1 {
     font-family: Bree Serif;
 }
 
-#game-space {
+#game-space, #keyboard {
     margin: auto;
     width: max-content;
     border: 0px;
@@ -19,9 +19,42 @@ h1 {
     max-height: 60px;
     aspect-ratio: 1/1;
     margin: 5px 5px 0 0;
-    border: 1px solid black;
+    border: 2px solid #D3D6DA;
     font-size: 30px;
-    font-weight: 900;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.row {
+    justify-content: center;
+}
+
+.key {
+    background-color: #D3D6DA;
+    width: 5vw;
+    max-width: 40px;
+    max-height: 60px;
+    aspect-ratio: 1/1.5;
+    margin: 5px 5px 0 0;
+    border: 1px solid #D3D6DA;
+    border-radius: 4px;
+    font-size: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.key-wide {
+    background-color: #D3D6DA;
+    width: 5vw;
+    max-width: 60px;
+    max-height: 60px;
+    aspect-ratio: 1/1;
+    margin: 5px 5px 0 0;
+    border: 1px solid #D3D6DA;
+    border-radius: 4px;
+    font-size: 15px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -30,13 +63,13 @@ h1 {
 .green {
     background-color: #6AAA65;
     color: #FFFFFF;
-    border: 1px solid #6AAA65;
+    border: 2px solid #6AAA65;
 }
 
 .yellow {
     background-color: #C9B458;
     color: #FFFFFF;
-    border: 1px solid #C9B458;
+    border: 2px solid #C9B458;
 }
 
 .light-grey {
@@ -46,5 +79,5 @@ h1 {
 .dark-grey {
     background-color: #787C7E;
     color: #FFFFFF;
-    border: 1px solid #787C7E;
+    border: 2px solid #787C7E;
 }
