@@ -12,10 +12,10 @@
 
 - Make grid layout for game div ✅
 - 5 columns x 6 rows ✅
-- Make keyboard layout
-  - Row 1 - 10 tiles
-  - Row 2 - 9 tiles
-  - Row 3 - 9 tiles with first and last at 1.5 width
+- Make keyboard layout ✅
+  - Row 1 - 10 tiles ✅
+  - Row 2 - 9 tiles ✅
+  - Row 3 - 9 tiles with first and last at 1.5 width ✅
 - Make navbar with 3 buttons: ✅
   - Instructions ✅
   - Stats ✅
@@ -41,6 +41,15 @@
   - Light grey (keyboard) ✅
 
 ## JavaScript
+
+- Build keyboard
+  - Make array of all letters
+  - Function to build rows
+  - For loop length.letters:
+    - If [i] up to P, up to L, up to M
+    - Append key div to row
+    - Add [i] to new key
+  - Append delete and prepend ENTER to row3
 
 - Make or import array of 5 letter words
 - Make guess counter
