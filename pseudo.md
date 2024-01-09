@@ -47,14 +47,14 @@
 - Choose a word at random
 - Event listener on keyboard div
 - When keyboard key clicked:
-  - Add letter to next tile in game grid - border brightens slightly
+  - Add letter to next tile in game grid - border brightens/dims (light or dark mode)
   - <span style="color:red">Subtle bounce animation effect</span>
 - When DELETE clicked:
-  - Remove last tile from grid - border dims
+  - Remove last tile from grid - border dims/brightens
 - When ENTER clicked:
   - <span style="color:red">Check if actually a word - dictionary API?</span>
   - Check against letters in word
-  - Change colour of tile and keys depending on inclusion/placement in word
+  - Change colour of tile and keys depending on inclusion/placement in word - border matches tile fill colour
   - <span style="color:red">Animation - tiles flip over</span>
   - Guess counter++
 - Keep going while letters are unmatched
