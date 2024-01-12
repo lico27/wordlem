@@ -56,7 +56,7 @@
 - Choose a word at random
 - Event listener on keyboard div
 - When keyboard key clicked:
-  - Add letter to next tile in game grid - border brightens/dims (light or dark mode)
+  - Add letter to next tile in game grid - border brightens/dims (light or dark mode) - <span style="color:red">limit to five clicks</span>
   - <span style="color:red">Subtle bounce animation effect</span>
 - When DELETE clicked:
   - Remove last tile from grid - border dims/brightens
