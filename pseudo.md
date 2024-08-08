@@ -49,7 +49,7 @@
     - If [i] up to P, up to L, up to M ✅
     - Append key div to row ✅
     - Add [i] to new key ✅
-  - Append delete and prepend ENTER to row3
+  - Append delete and prepend ENTER to row3 ✅
 
 - Make or import array of 5 letter words ✅
 - Make guess counter
