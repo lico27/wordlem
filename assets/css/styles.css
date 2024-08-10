@@ -8,19 +8,24 @@ h1 {
     color: #787C7E;
 }
 
-#game-space, #keyboard {
-    margin: auto;
+#keyboard {
     width: 485px;
     justify-content: center;
-    border: 1px solid black;
     flex-wrap: wrap;
 }
 
+#game-container {
+    width: 350px; 
+    flex-direction: column;
+}
+
+.row {
+    justify-content: center;
+}
+
 .tile {
-    width: 10vw;
     width: 60px;
     height: 60px;
-    aspect-ratio: 1/1;
     margin: 5px 5px 0 0;
     border: 2px solid #D3D6DA;
     font-size: 30px;
@@ -30,32 +35,22 @@ h1 {
 }
 
 
-.key {
+.key, .key-wide {
     background-color: #D3D6DA;
     width: 40px;
     height: 60px;
     margin: 5px 5px 0 0;
     border: 1px solid #D3D6DA;
     border-radius: 4px;
-    font-size: 20px;
+    font-size: 1.3rem;
     display: flex;
     justify-content: center;
     align-items: center;
-
 }
 
 .key-wide {
-    background-color: #D3D6DA;
     width: 60px;
-    height: 60px;
-    margin: 5px 5px 0 0;
-    border: 1px solid #D3D6DA;
-    border-radius: 4px;
-    font-size: 0.8rem;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-width: 50px;
+    font-size: 1rem;
 }
 
 .green {
