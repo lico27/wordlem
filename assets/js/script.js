@@ -1,3 +1,18 @@
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 // Make keyboard
 const letters = [
     "Q", "W", "E", "R", "T", "Y", "U", "I", "O", "P",
@@ -63,13 +78,8 @@ function submitGuess() {
 
 
 
-
-
 // makeKeyboard();
 // submitGuess();
-
-
-
 
 
 
