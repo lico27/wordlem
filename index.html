@@ -6,19 +6,26 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet"/>
     <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap" rel="stylesheet"/>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/7.1.0/mdb.min.css" rel="stylesheet"/>
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bree Serif">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bree Serif&family=Lato:wght@900">
     <link rel="stylesheet" href="assets/css/styles.css">
     <title>Wordlem</title>
 </head>
-<body>
+<body id="landing">
 
-    <h1><a href="game.html">Click to play</a>
-    </h1>
+<div class="d-flex" id="landing-greeting">
+   <h1 id="landing-head">Wordlem</h1>
+   <p class="landing-text">Correctly identify a five-letter word in six guesses.</p>
+   <a href="./game.html"><button type="button" class="btn btn-dark btn-rounded btn-lg" data-mdb-ripple-init>Play</button></a>
+
+</div>
+
+
 
     <!-- Scripts -->
     <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/7.1.0/mdb.umd.min.js"></script>
     <script src="assets/js/script.js"></script>
+    <script src="assets/js/words.js"></script>
     <!-- Scripts -->
 </body>
 </html>
