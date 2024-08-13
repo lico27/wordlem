@@ -31,13 +31,37 @@
         <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav ms-auto">
             <li class="nav-item">
-            <a class="nav-link" href="#"><i class="far fa-circle-question fa-2x"></i></a>
+            <a class="nav-link" href="#"><i class="far fa-circle-question fa-2x" data-mdb-ripple-init data-mdb-modal-init data-mdb-target="#instructionsModal"></i></a>
             </li>
             <li class="nav-item">
             <a class="nav-link" href="#"><i class="fas fa-square-poll-vertical fa-2x"></i></a>
             </li>
             <li class="nav-item">
             <a class="nav-link" href="#"><i class="fas fa-gear fa-2x"></i></a>
+            </li>
+            <li>
+  
+                <!-- Instructions Modal -->
+                <div class="modal fade" id="instructionsModal" tabindex="-1" aria-labelledby="instructionsModalLabel" aria-hidden="true">
+                    <div class="modal-dialog">
+                    <div class="modal-content">
+                        <!-- Instructions header -->
+                        <div class="modal-header">
+                        <h1 class="modal-title" id="instructionsModalLabel">How to Play</h1>
+                        <button type="button" class="btn-close" data-mdb-ripple-init data-mdb-dismiss="modal" aria-label="Close"></button>
+                        </div>
+
+                        <div class="modal-body">
+                            <p>Instructions here</p>
+                        </div>
+                        <!-- Instructions footer -->
+                        <div class="modal-footer">
+                        <button type="button" class="btn btn-dark" data-mdb-ripple-init data-mdb-dismiss="modal">Let's play!</button>
+
+                        </div>
+                    </div>
+                    </div>
+                </div>
             </li>
         </ul>
         </div>
