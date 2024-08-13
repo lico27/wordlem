@@ -1,5 +1,5 @@
 * {
-    /* border: 1px solid black; */
+    /* border: 1px solid #000000; */
     font-family: Lato;
 }
 
@@ -29,7 +29,6 @@ h1 {
     color: #000000;
     font-size: 3.5rem;
 }
-
 
 #keyboard {
     width: 485px;
@@ -96,4 +95,18 @@ h1 {
     background-color: #787C7E;
     color: #FFFFFF;
     border: 2px solid #787C7E;
+}
+
+
+#logo {
+    border: 1px solid #000000;
+}
+
+.logo-tile {
+    height: 40px;
+    width: 40px;
+    border: 1px solid #000000;
+    justify-content: center;
+    align-items: center;
+    color: #000000;
 }

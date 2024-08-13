@@ -29,5 +29,9 @@ for (let i = 0; i < letters.length; i++) {
 
 
 // check if word exists in English
-
 // https://api.dictionaryapi.dev/api/v2/entries/en/<word>
+
+// select last non-empty tile
+// $('.tile:not(:empty):last')
+
+
