@@ -57,16 +57,18 @@ const letters = [
 ];
 
 let count = 0; // Total clicks counter
-let letterArray = []; // Array to keep track of clicked letters
+let clickedLettersAsArray = []; // Array to keep track of clicked letters
 const correctWord = wordList[Math.floor(Math.random() * wordList.length)]; // choose a random word to be the correct guess
-//const letterArray = ["T", "E", "N", "S", "E"] // correctWord.split("");
+const correctWordAsArray = correctWord.split("");
 console.log(correctWord);
+console.log(correctWordAsArray);
 //let wordChoice = ["T", "E", "A", "R", "S"];
 
-function submitGuess(correctWord, letterArray) {
-  // if statement with API call to check word
-  for (let i = 0; i < letterArray.length; i++) {
-    if (letterArray[i] == correctWord[i]) {
+function submitGuess(clickedLettersAsArray, correctWordAsArray) {
+  // TODO: if statement with API call to check word
+
+  for (let i = 0; i < correctWordAsArray.length; i++) {
+    if (correctWordAsArray[i] === clickedLettersAsArray[i]) {
       console.log("yes");
       $("#tile-" + i).addClass("green");
       
@@ -84,19 +86,19 @@ for (let i = 0; i < letters.length; i++) {
 
   key.on("click", function (event) {
     // Push the clicked letter to the array
-    letterArray.push(letters[i]);
-    $('.tile:empty:first').text(letters[i]).attr("id", "tile-" + i);
+    clickedLettersAsArray.push(letters[i]);
+    $('.tile:empty:first').text(letters[i]).attr("id", "tile-" + (clickedLettersAsArray.length - 1));
     count++;
 
     // Convert the array to a string
-    let wordChoice = letterArray.join("");
-    console.log("wordChoice:", wordChoice);
+    // let wordChoice = clickArray.join("");
+    // console.log("wordChoice:", wordChoice);
 
     // Stop all keys from being clickable after 5 clicks
     if (count >= 5) {
       $(".key").off("click");
       enterKey.on("click", function (event) {
-        submitGuess(correctWord, letterArray);
+        submitGuess(clickedLettersAsArray, correctWordAsArray);
       })
 
     }
