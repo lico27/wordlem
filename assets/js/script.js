@@ -79,31 +79,34 @@ function submitGuess(clickedLettersAsArray, correctWordAsArray) {
   }
 };
 
-
-for (let i = 0; i < letters.length; i++) {
-  let key = $("#" + letters[i]);
-  let enterKey = $("#enter");
-
-  key.on("click", function (event) {
-    // Push the clicked letter to the array
-    clickedLettersAsArray.push(letters[i]);
-    $('.tile:empty:first').text(letters[i]).attr("id", "tile-" + (clickedLettersAsArray.length - 1));
-    count++;
-
-    // Convert the array to a string
-    // let wordChoice = clickArray.join("");
-    // console.log("wordChoice:", wordChoice);
-
-    // Stop all keys from being clickable after 5 clicks
-    if (count >= 5) {
-      $(".key").off("click");
-      enterKey.on("click", function (event) {
-        submitGuess(clickedLettersAsArray, correctWordAsArray);
-      })
-
-    }
-  });
+function guessWord() {
+  for (let i = 0; i < letters.length; i++) {
+    let key = $("#" + letters[i]);
+    let enterKey = $("#enter");
+  
+    key.on("click", function (event) {
+      // Push the clicked letter to the array
+      clickedLettersAsArray.push(letters[i]);
+      $('.tile:empty:first').text(letters[i]).attr("id", "tile-" + (clickedLettersAsArray.length - 1));
+      count++;
+  
+      // Convert the array to a string
+      // let wordChoice = clickArray.join("");
+      // console.log("wordChoice:", wordChoice);
+  
+      // Stop all keys from being clickable after 5 clicks
+      if (count >= 5) {
+        $(".key").off("click");
+        enterKey.on("click", function (event) {
+          submitGuess(clickedLettersAsArray, correctWordAsArray);
+        })
+  
+      }
+    });
+  }
 }
+
+guessWord();
 
 
 // check if word exists in English
