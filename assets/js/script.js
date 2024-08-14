@@ -1,4 +1,4 @@
-const wordList = [
+const wordListLower = [
   'apple', 'grape', 'music', 'happy', 'piano',
   'earth', 'ocean', 'zebra', 'chair', 'mouse',
   'laser', 'tiger', 'skate', 'blend', 'jelly',
@@ -46,6 +46,10 @@ const wordList = [
   'brisk', 'chops', 'moose', 'blast', 'sassy'
 ];
 
+let wordList = wordListLower.map(function(item) {
+  return item.toUpperCase();
+  });
+
 const letters = [
   "Q", "W", "E", "R", "T", "Y", "U", "I", "O", "P",
   "A", "S", "D", "F", "G", "H", "J", "K", "L",
@@ -55,10 +59,24 @@ const letters = [
 let count = 0; // Total clicks counter
 let letterArray = []; // Array to keep track of clicked letters
 const correctWord = wordList[Math.floor(Math.random() * wordList.length)]; // choose a random word to be the correct guess
+//const letterArray = ["T", "E", "N", "S", "E"] // correctWord.split("");
+console.log(correctWord);
+//let wordChoice = ["T", "E", "A", "R", "S"];
 
-function submitGuess(guessedWord) {
+function submitGuess(correctWord, letterArray) {
   // if statement with API call to check word
-}
+  for (let i = 0; i < letterArray.length; i++) {
+    if (letterArray[i] == correctWord[i]) {
+      console.log("yes");
+      $("#tile-" + i).addClass("green");
+      
+    } else {
+      console.log("no");
+    }
+    
+  }
+};
+
 
 for (let i = 0; i < letters.length; i++) {
   let key = $("#" + letters[i]);
@@ -67,7 +85,7 @@ for (let i = 0; i < letters.length; i++) {
   key.on("click", function (event) {
     // Push the clicked letter to the array
     letterArray.push(letters[i]);
-    $('.tile:empty:first').text(letters[i]);
+    $('.tile:empty:first').text(letters[i]).attr("id", "tile-" + i);
     count++;
 
     // Convert the array to a string
@@ -77,9 +95,9 @@ for (let i = 0; i < letters.length; i++) {
     // Stop all keys from being clickable after 5 clicks
     if (count >= 5) {
       $(".key").off("click");
-      // enterKey.on("click", function (event) {
-      //   submitGuess(wordChoice);
-      // })
+      enterKey.on("click", function (event) {
+        submitGuess(correctWord, letterArray);
+      })
 
     }
   });
