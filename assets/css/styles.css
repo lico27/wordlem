@@ -100,15 +100,19 @@ h1 {
     border: 2px solid #787C7E;
 }
 
-#logo {
+#logo, .instructions-demo {
     border: 1px solid #000000;
+    width: 200px;
 }
 
-.logo-tile {
+.logo-tile, .instructions-tile {
     height: 40px;
     width: 40px;
     border: 1px solid #000000;
     justify-content: center;
     align-items: center;
+}
+
+.fa-lemon {
     color: #000000;
 }
