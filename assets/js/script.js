@@ -148,13 +148,7 @@ function guessWord() {
 guessWord();
 
 
-// check if word exists in English
-// https://api.dictionaryapi.dev/api/v2/entries/en/<word>
+// event.preventDefault();
 
-
-
-      // Convert the array to a string
-      // let wordChoice = clickArray.join("");
-      // console.log("wordChoice:", wordChoice);
 
 

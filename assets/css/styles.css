@@ -126,3 +126,11 @@ h1 {
     text-decoration: underline double;
     text-emphasis: 0;
 }
+
+.modal-link a {
+    color: #505050 !important;
+}
+
+.modal-link a:hover {
+    color: #6AAA65 !important;
+}
