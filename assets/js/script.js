@@ -56,8 +56,9 @@ let wordList = wordListLower.map(function(item) {
   return item.toUpperCase();
   });
 
-let count = 0; // Total clicks counter
-let clickedLettersAsArray = []; // Array to keep track of clicked letters
+let count = 0; // count clicks
+let clickedLettersAsArray = []; // keep track of letters
+let isWord;
 const correctWord = wordList[Math.floor(Math.random() * wordList.length)]; // choose a random word to be the correct guess
 const correctWordAsArray = correctWord.split(""); // make correct word into array of letters
 console.log(correctWord);
@@ -69,15 +70,31 @@ function popoverTimeout(notWordAlert) {
   }, 2000);
   }
 
-// 
-function submitGuess(clickedLettersAsArray, correctWordAsArray) {
+// call dictionary API
+function checkIsWord(wordChoice) {
+  let queryIsWord = "https://api.dictionaryapi.dev/api/v2/entries/en/" + wordChoice;
+  return fetch(queryIsWord)
+    .then(function (dictResponse) {
+      if (dictResponse.ok) {
+        // check for no 404 errors
+        return true;
+      } else {
+        return false;
+      }
+    })
+    // catch other errors
+    .catch(function (error) {
+      console.error("There was an error:", error);
+      return false;
+    });
+    };
 
-  // TODO: if statement with API call to check word
-
-  if (true) {
+// check guess and change tiles accordingly 
+function submitGuess(clickedLettersAsArray, correctWordAsArray, wordChoice) {
+  checkIsWord(wordChoice).then(function(isWord) {
+  if (isWord) {
     for (let i = 0; i < correctWordAsArray.length; i++) {
       if (correctWordAsArray[i] === clickedLettersAsArray[i]) {
-        console.log("yes");
         $("#tile-" + i).addClass("green");     
       } 
       
@@ -92,11 +109,11 @@ function submitGuess(clickedLettersAsArray, correctWordAsArray) {
     }
   } else {
     // show 'not a word' popover for 2 seconds
-    var notWordAlert = new mdb.Popover($("#not-word-alert"));
+    const notWordAlert = new mdb.Popover($("#not-word-alert"));
     notWordAlert.show();
     popoverTimeout(notWordAlert);
   }
-};
+})};
 
 function guessWord() {
   for (let i = 0; i < letters.length; i++) {
@@ -108,6 +125,9 @@ function guessWord() {
       clickedLettersAsArray.push(letters[i]);
       $('.tile:empty:first').text(letters[i]).attr("id", "tile-" + (clickedLettersAsArray.length - 1));
       count++;
+
+      // Convert the array to a string
+       let wordChoice = clickedLettersAsArray.join("");
   
             // TODO: del function - count--
             // select last non-empty tile
@@ -117,8 +137,7 @@ function guessWord() {
       if (count >= 5) {
         $(".key").off("click");
         enterKey.on("click", function (event) {
-          submitGuess(clickedLettersAsArray, correctWordAsArray);
-          
+          submitGuess(clickedLettersAsArray, correctWordAsArray, wordChoice);
         })
   
       }
