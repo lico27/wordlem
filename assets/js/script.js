@@ -61,7 +61,6 @@ let clickedLettersAsArray = []; // Array to keep track of clicked letters
 const correctWord = wordList[Math.floor(Math.random() * wordList.length)]; // choose a random word to be the correct guess
 const correctWordAsArray = correctWord.split("");
 console.log(correctWord);
-console.log(correctWordAsArray);
 //let wordChoice = ["T", "E", "A", "R", "S"];
 
 function submitGuess(clickedLettersAsArray, correctWordAsArray) {
@@ -70,10 +69,16 @@ function submitGuess(clickedLettersAsArray, correctWordAsArray) {
   for (let i = 0; i < correctWordAsArray.length; i++) {
     if (correctWordAsArray[i] === clickedLettersAsArray[i]) {
       console.log("yes");
-      $("#tile-" + i).addClass("green");
-      
+      $("#tile-" + i).addClass("green");     
+    } 
+    
+    else if (correctWordAsArray.includes(clickedLettersAsArray[i])) {
+      console.log("yellow")
+      $("#tile-" + i).addClass("yellow");
+
     } else {
       console.log("no");
+      $("#tile-" + i).addClass("dark-grey");
     }
     
   }
@@ -90,10 +95,10 @@ function guessWord() {
       $('.tile:empty:first').text(letters[i]).attr("id", "tile-" + (clickedLettersAsArray.length - 1));
       count++;
   
-      // Convert the array to a string
-      // let wordChoice = clickArray.join("");
-      // console.log("wordChoice:", wordChoice);
-  
+            // TODO: del function - count--
+            // select last non-empty tile
+            // $('.tile:not(:empty):last')
+
       // Stop all keys from being clickable after 5 clicks
       if (count >= 5) {
         $(".key").off("click");
@@ -112,7 +117,10 @@ guessWord();
 // check if word exists in English
 // https://api.dictionaryapi.dev/api/v2/entries/en/<word>
 
-// select last non-empty tile
-// $('.tile:not(:empty):last')
+
+
+      // Convert the array to a string
+      // let wordChoice = clickArray.join("");
+      // console.log("wordChoice:", wordChoice);
 
 
