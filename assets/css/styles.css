@@ -117,7 +117,12 @@ h1 {
     color: #000000;
 }
 
-#not-word-alert {
+.hidden-popover {
     height: 0px;
     border: 0px !important;
+}
+
+p b {
+    text-decoration: underline double;
+    text-emphasis: 0;
 }
