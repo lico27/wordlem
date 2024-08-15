@@ -46,41 +46,44 @@ const wordListLower = [
   'brisk', 'chops', 'moose', 'blast', 'sassy'
 ];
 
-let wordList = wordListLower.map(function(item) {
-  return item.toUpperCase();
-  });
-
 const letters = [
   "Q", "W", "E", "R", "T", "Y", "U", "I", "O", "P",
   "A", "S", "D", "F", "G", "H", "J", "K", "L",
   "Z", "X", "C", "V", "B", "N", "M"
 ];
 
+let wordList = wordListLower.map(function(item) {
+  return item.toUpperCase();
+  });
+
 let count = 0; // Total clicks counter
 let clickedLettersAsArray = []; // Array to keep track of clicked letters
 const correctWord = wordList[Math.floor(Math.random() * wordList.length)]; // choose a random word to be the correct guess
-const correctWordAsArray = correctWord.split("");
+const correctWordAsArray = correctWord.split(""); // make correct word into array of letters
 console.log(correctWord);
-//let wordChoice = ["T", "E", "A", "R", "S"];
 
 function submitGuess(clickedLettersAsArray, correctWordAsArray) {
+
   // TODO: if statement with API call to check word
 
-  for (let i = 0; i < correctWordAsArray.length; i++) {
-    if (correctWordAsArray[i] === clickedLettersAsArray[i]) {
-      console.log("yes");
-      $("#tile-" + i).addClass("green");     
-    } 
-    
-    else if (correctWordAsArray.includes(clickedLettersAsArray[i])) {
-      console.log("yellow")
-      $("#tile-" + i).addClass("yellow");
+  if (false) {
+    for (let i = 0; i < correctWordAsArray.length; i++) {
+      if (correctWordAsArray[i] === clickedLettersAsArray[i]) {
+        console.log("yes");
+        $("#tile-" + i).addClass("green");     
+      } 
+      
+      else if (correctWordAsArray.includes(clickedLettersAsArray[i])) {
+        console.log("yellow")
+        $("#tile-" + i).addClass("yellow");
 
-    } else {
-      console.log("no");
-      $("#tile-" + i).addClass("dark-grey");
+      } else {
+        console.log("no");
+        $("#tile-" + i).addClass("dark-grey");
+      }
     }
-    
+  } else {
+    $("#not-word-alert").click();
   }
 };
 
