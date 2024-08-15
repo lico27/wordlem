@@ -62,11 +62,19 @@ const correctWord = wordList[Math.floor(Math.random() * wordList.length)]; // ch
 const correctWordAsArray = correctWord.split(""); // make correct word into array of letters
 console.log(correctWord);
 
+// hide 'not a word' popover
+function popoverTimeout(notWordAlert) {
+  setTimeout(function() {
+    notWordAlert.hide();
+  }, 2000);
+  }
+
+// 
 function submitGuess(clickedLettersAsArray, correctWordAsArray) {
 
   // TODO: if statement with API call to check word
 
-  if (false) {
+  if (true) {
     for (let i = 0; i < correctWordAsArray.length; i++) {
       if (correctWordAsArray[i] === clickedLettersAsArray[i]) {
         console.log("yes");
@@ -83,7 +91,10 @@ function submitGuess(clickedLettersAsArray, correctWordAsArray) {
       }
     }
   } else {
-    $("#not-word-alert").click();
+    // show 'not a word' popover for 2 seconds
+    var notWordAlert = new mdb.Popover($("#not-word-alert"));
+    notWordAlert.show();
+    popoverTimeout(notWordAlert);
   }
 };
 
@@ -107,6 +118,7 @@ function guessWord() {
         $(".key").off("click");
         enterKey.on("click", function (event) {
           submitGuess(clickedLettersAsArray, correctWordAsArray);
+          
         })
   
       }
