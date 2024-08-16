@@ -71,35 +71,35 @@ function popoverTimeout(notWordAlert) {
   }
 
 // call dictionary API
-function checkIsWord(wordChoice) {
-  let queryIsWord = "https://api.dictionaryapi.dev/api/v2/entries/en/" + wordChoice;
-  return fetch(queryIsWord)
-    .then(function (dictResponse) {
-      if (dictResponse.ok) {
-        // check for no 404 errors
-        return true;
-      } else {
-        return false;
-      }
-    })
-    // catch other errors
-    .catch(function (error) {
-      console.error("There was an error:", error);
-      return false;
-    });
-    };
+// function checkIsWord(wordChoice) {
+//   let queryIsWord = "https://api.dictionaryapi.dev/api/v2/entries/en/" + wordChoice;
+//   return fetch(queryIsWord, { mode: 'no-cors' })
+//     .then(function (dictResponse) {
+//       if (dictResponse.ok) {
+//         // check for no 404 errors
+//         return true;
+//       } else {
+//         return false;
+//       }
+//     })
+//     // catch other errors
+//     .catch(function (error) {
+//       console.error("There was an error:", error);
+//       return false;
+//     });
+//     };
 
 // check guess and change tiles accordingly 
 function submitGuess(clickedLettersAsArray, correctWordAsArray, wordChoice) {
-  checkIsWord(wordChoice).then(function(isWord) {
-  if (isWord) {
+
+  // checkIsWord(wordChoice).then(function(isWord) {
+  if (!isWord) {
     for (let i = 0; i < correctWordAsArray.length; i++) {
       if (correctWordAsArray[i] === clickedLettersAsArray[i]) {
         $("#tile-" + i).addClass("green");     
       } 
       
       else if (correctWordAsArray.includes(clickedLettersAsArray[i])) {
-        console.log("yellow")
         $("#tile-" + i).addClass("yellow");
 
       } else {
@@ -113,22 +113,32 @@ function submitGuess(clickedLettersAsArray, correctWordAsArray, wordChoice) {
     notWordAlert.show();
     popoverTimeout(notWordAlert);
   }
-})};
+}
+// )};
 
 function guessWord() {
   for (let i = 0; i < letters.length; i++) {
-    let key = $("#" + letters[i]);
-    let enterKey = $("#enter");
-  
+    const key = $("#" + letters[i]);
+    const enterKey = $("#enter");
+    const delKey = $("#del");
+    
     key.on("click", function (event) {
       // Push the clicked letter to the array
       clickedLettersAsArray.push(letters[i]);
       $('.tile:empty:first').text(letters[i]).attr("id", "tile-" + (clickedLettersAsArray.length - 1));
       count++;
 
+    delKey.on("click", function (event) {
+      clickedLettersAsArray.pop();
+      $('.tile:not(:empty):last').text("").attr("id", "");
+      count--;
+    });
+      
+
       // Convert the array to a string
        let wordChoice = clickedLettersAsArray.join("");
-  
+        console.log(wordChoice);
+        
             // TODO: del function - count--
             // select last non-empty tile
             // $('.tile:not(:empty):last')
@@ -146,6 +156,8 @@ function guessWord() {
 }
 
 guessWord();
+
+
 
 
 // event.preventDefault();
