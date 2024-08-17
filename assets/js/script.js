@@ -103,7 +103,6 @@ function submitGuess(clickedLettersAsArray, correctWordAsArray, wordChoice) {
         $("#tile-" + i).addClass("yellow");
 
       } else {
-        console.log("no");
         $("#tile-" + i).addClass("dark-grey");
       }
     }
