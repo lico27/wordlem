@@ -71,7 +71,10 @@ function popoverTimeout(notWordAlert) {
   }
 
 // call dictionary API
-// function checkIsWord(wordChoice) {
+function checkIsWord(wordChoice) {
+
+};
+
 //   let queryIsWord = "https://api.dictionaryapi.dev/api/v2/entries/en/" + wordChoice;
 //   return fetch(queryIsWord, { mode: 'no-cors' })
 //     .then(function (dictResponse) {
